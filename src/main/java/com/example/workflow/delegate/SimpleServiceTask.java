@@ -11,7 +11,9 @@ public class SimpleServiceTask implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-       log.info("Call simple service task");
+        String name = (String) delegateExecution.getVariable("firstName");
+
+        log.info("{} call simple service task", name);
     }
 
 }
