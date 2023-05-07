@@ -13,15 +13,16 @@
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_16gzt2m</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:boundaryEvent id="Event_0t8d92n" attachedToRef="simple-service-task">
+    <bpmn:boundaryEvent id="Event_0t8d92n" name="Name is null" attachedToRef="simple-service-task">
       <bpmn:outgoing>Flow_02w9sgn</bpmn:outgoing>
-      <bpmn:errorEventDefinition id="ErrorEventDefinition_17su46r" />
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_17su46r" errorRef="Error_0w0l6x3" />
     </bpmn:boundaryEvent>
     <bpmn:endEvent id="Event_0akwcny" name="Fail">
       <bpmn:incoming>Flow_02w9sgn</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_02w9sgn" sourceRef="Event_0t8d92n" targetRef="Event_0akwcny" />
   </bpmn:process>
+  <bpmn:error id="Error_0w0l6x3" name="ErrorNameNull" errorCode="error.name.null" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="camunda-example-process">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -47,6 +48,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0s3lndu_di" bpmnElement="Event_0t8d92n">
         <dc:Bounds x="302" y="139" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="290" y="182" width="61" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
         <di:waypoint x="215" y="117" />

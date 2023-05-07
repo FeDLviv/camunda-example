@@ -13,13 +13,20 @@ public class SimpleServiceTask implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
         String name = (String) delegateExecution.getVariable("firstName");
+        Integer age = (Integer) delegateExecution.getVariable("age");
 
         if (name == null) {
             log.error("Error - firstName is required");
             throw new BpmnError("error.name.null");
         }
 
-        log.info("{} call simple service task", name);
+        if (age == null) {
+            log.error("Error - age is required");
+            //without Error Boundary Event
+            throw new BpmnError("error.age.null");
+        }
+
+        log.info("{} (age={}) call simple service task", name, age);
     }
 
 }
