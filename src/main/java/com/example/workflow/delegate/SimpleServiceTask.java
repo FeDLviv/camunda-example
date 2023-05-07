@@ -27,6 +27,9 @@ public class SimpleServiceTask implements JavaDelegate {
         }
 
         log.info("{} (age={}) call simple service task", name, age);
+
+        int sum = (int) (Math.random() * 100);
+        delegateExecution.setVariable("money", sum);
     }
 
 }

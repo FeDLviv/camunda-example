@@ -11,6 +11,8 @@ public class FailExecutionListener implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
+        delegateExecution.setVariable("money", 0);
+
         log.info("Fail, all variables: {}", delegateExecution.getVariables());
     }
 
