@@ -9,7 +9,10 @@
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="simple-service-task" />
-    <bpmn:endEvent id="EndEvent_0x6ir2l" name="Sucess">
+    <bpmn:endEvent id="EndEvent_0x6ir2l" name="Success">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${successExecutionListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0sivy5j</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="simple-service-task" targetRef="Gateway_1vtrmil" />
@@ -22,6 +25,9 @@
       <bpmn:errorEventDefinition id="ErrorEventDefinition_17su46r" errorRef="Error_0w0l6x3" />
     </bpmn:boundaryEvent>
     <bpmn:endEvent id="Event_0akwcny" name="Fail">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${failExecutionListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_02w9sgn</bpmn:incoming>
       <bpmn:incoming>Flow_1cvp0zb</bpmn:incoming>
     </bpmn:endEvent>
@@ -51,7 +57,7 @@
       <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
         <dc:Bounds x="622" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="622" y="142" width="37" height="14" />
+          <dc:Bounds x="619" y="142" width="43" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1vtrmil_di" bpmnElement="Gateway_1vtrmil" isMarkerVisible="true">
