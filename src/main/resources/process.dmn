@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Decision_0g4agct" name="Process definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.10.0">
+  <decision id="offers" name="Offers">
+    <decisionTable id="DecisionTable_1c2hb4b">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>money</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="product" typeRef="string" />
+      <rule id="DecisionRule_1iri2dx">
+        <inputEntry id="UnaryTests_0hrj6y1">
+          <text>0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wsucb4">
+          <text>"-"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1e8de8i">
+        <inputEntry id="UnaryTests_1i5notr">
+          <text>[1..20]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u3glip">
+          <text>"flower"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0byil0b">
+        <inputEntry id="UnaryTests_0cfl5wv">
+          <text>&gt; 20</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0boomi1">
+          <text>"car"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="offers">
+        <dc:Bounds height="80" width="180" x="160" y="110" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
