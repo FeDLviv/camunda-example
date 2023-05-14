@@ -20,6 +20,10 @@
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
         </camunda:connector>
+        <camunda:executionListener event="end">
+          <camunda:script scriptFormat="groovy">println("The losses of the Russian army on ${date}:")
+println(result)</camunda:script>
+        </camunda:executionListener>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0p5xkan</bpmn:incoming>
       <bpmn:outgoing>Flow_1hbc8xi</bpmn:outgoing>
@@ -30,12 +34,12 @@
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1oaqmfh_di" bpmnElement="Event_1oaqmfh">
+        <dc:Bounds x="422" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1c87jrr_di" bpmnElement="Activity_0ent5ru">
         <dc:Bounds x="270" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1oaqmfh_di" bpmnElement="Event_1oaqmfh">
-        <dc:Bounds x="422" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0p5xkan_di" bpmnElement="Flow_0p5xkan">
         <di:waypoint x="215" y="117" />

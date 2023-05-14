@@ -6,4 +6,4 @@ camunda.bpm.admin-user:
 
 logging:
     level:
-        connectjar.org.apache.http: DEBUG
+        connectjar.org.apache.http: INFO
