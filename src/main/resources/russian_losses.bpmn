@@ -16,13 +16,30 @@
           <camunda:inputOutput>
             <camunda:inputParameter name="method">GET</camunda:inputParameter>
             <camunda:inputParameter name="url">https://russianwarship.rip/api/v2/statistics/${date}</camunda:inputParameter>
-            <camunda:outputParameter name="result">${response}</camunda:outputParameter>
+            <camunda:outputParameter name="result">${S(response)}</camunda:outputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
         </camunda:connector>
         <camunda:executionListener event="end">
           <camunda:script scriptFormat="groovy">println("The losses of the Russian army on ${date}:")
-println(result)</camunda:script>
+
+def stats = result.prop('data').prop('stats')
+
+println("- personnel units: ${stats.prop('personnel_units')}")
+println("- tanks: ${stats.prop('tanks')}")
+println("- personnel units: ${stats.prop('personnel_units')}")
+println("- armoured fighting vehicless: ${stats.prop('armoured_fighting_vehicles')}")
+println("- artillery systems: ${stats.prop('artillery_systems')}")
+println("- mlrs: ${stats.prop('mlrs')}")
+println("- aa warfare systems: ${stats.prop('aa_warfare_systems')}")
+println("- planes: ${stats.prop('planes')}")
+println("- helicopters: ${stats.prop('helicopters')}")
+println("- vehicles fuel tanks: ${stats.prop('vehicles_fuel_tanks')}")
+println("- warships cutters: ${stats.prop('warships_cutters')}")
+println("- cruise missiles: ${stats.prop('cruise_missiles')}")
+println("- uav systems: ${stats.prop('uav_systems')}")
+println("- special military equip: ${stats.prop('special_military_equip')}")
+println("- atgm srbm systems: ${stats.prop('atgm_srbm_systems')}")</camunda:script>
         </camunda:executionListener>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0p5xkan</bpmn:incoming>
